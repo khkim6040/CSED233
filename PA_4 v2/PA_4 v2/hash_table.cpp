@@ -78,7 +78,25 @@ void BucketHashTable::print_table(ostream &out) {
 void BucketHashTable::insert(int key) {
     /////////////////////////////////////////////////////////
     //////////  TODO: Implement From Here      //////////////
-
+    int index = hf->hashing(key);
+    // insert
+    for(int i=0; i<this->bucket_size; i++) {
+        if(table_states[index*bucket_size+i] == EMPTY) {
+            table[index*bucket_size+i] = key;
+            table_states[index*bucket_size+i] = OCCUPIED;
+            return;
+        }
+    }
+    // overflow
+    for(int i=0; i<table_size; i++) {
+        if(overflow_states[i] == EMPTY) {
+            overflow[i] = key;
+            overflow_states[i] = OCCUPIED;
+            return;
+        }
+    }
+    // else -> 경우에 없음
+    cout << "OVERFLOW OF OVERFLOW!!";
     ///////////      End of Implementation      /////////////
     /////////////////////////////////////////////////////////
 }
@@ -86,7 +104,26 @@ void BucketHashTable::insert(int key) {
 void BucketHashTable::erase(int key) {
     /////////////////////////////////////////////////////////
     //////////  TODO: Implement From Here      //////////////
-
+    //////////  TODO: Implement From Here      //////////////
+    int index = hf->hashing(key);
+    // insert
+    for(int i=0; i<this->bucket_size; i++) {
+        if(table_states[index*bucket_size+i] == OCCUPIED && table[index*bucket_size+i] == key) {
+            table[index*bucket_size+i] = -1;
+            table_states[index*bucket_size+i] = DELETED;
+            return;
+        }
+    }
+    // overflow
+    for(int i=0; i<table_size; i++) {
+        if(overflow_states[i] == OCCUPIED && overflow[i] == key) {
+            overflow[i] = -1;
+            overflow_states[i] = DELETED;
+            return;
+        }
+    }
+    // else -> 경우에 없음
+    cout << "NO KEY FOUNDED!";
     ///////////      End of Implementation      /////////////
     /////////////////////////////////////////////////////////
 }
@@ -146,7 +183,26 @@ void DoubleHashTable::print_table(ostream &out) {
 void DoubleHashTable::insert(int key) {
     /////////////////////////////////////////////////////////
     //////////  TODO: Implement From Here      //////////////
+    
+    int hf1 = hf_1->hashing(key);
+    int hf2 = hf_2->hashing(key);
+    int i = 0;
+    int index = (hf1+i*hf2)%table_size;
+    // insert
+    while(true) {
+        if(states[index] == EMPTY) {
+            table[index] = key;
+            states[index] = OCCUPIED;
+            return;
+        }
+        else {
+            i++;
+            index = (hf1+i*hf2)%table_size;
+        }
+    }
 
+    // else -> 경우에 없음
+    cout << "OVERFLOW OF OVERFLOW!!";
     ///////////      End of Implementation      /////////////
     /////////////////////////////////////////////////////////
 }
@@ -154,7 +210,22 @@ void DoubleHashTable::insert(int key) {
 void DoubleHashTable::erase(int key) {
     /////////////////////////////////////////////////////////
     //////////  TODO: Implement From Here      //////////////
-
+    int hf1 = hf_1->hashing(key);
+    int hf2 = hf_2->hashing(key);
+    int i = 0;
+    int index = (hf1+i*hf2)%table_size;
+    // insert
+    while(true) {
+        if(states[index] == OCCUPIED && table[index] == key) {
+            table[index] = -1;
+            states[index] = DELETED;
+            return;
+        }
+        else {
+            i++;
+            index = (hf1+i*hf2)%table_size;
+        }
+    }
     ///////////      End of Implementation      /////////////
     /////////////////////////////////////////////////////////
 }

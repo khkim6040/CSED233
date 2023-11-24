@@ -5,12 +5,12 @@ using namespace std;
 
 class MaxHeap {
 
-public:
+  public:
     MaxHeap();
 
     int heap_size;
-    
-    void maxHeapProp(/*your heap array*/);
+
+    void maxHeapProp(char *arr);
     void insertKey(string sen);
     void deleteMax();
     string printHeap();
@@ -20,12 +20,10 @@ public:
     ///////////      End of Implementation      /////////////
     /////////////////////////////////////////////////////////
 
-private:
+  private:
     /////////////////////////////////////////////////////////
     //////  TODO: Add Private members if required ///////////
-
+    char *heap_arr;
     ///////////      End of Implementation      /////////////
     /////////////////////////////////////////////////////////
-
 };
-

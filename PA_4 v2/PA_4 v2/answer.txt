@@ -1,0 +1,41 @@
+[Task 1]
+Hash table
+0: 0,1
+1: 3,empty
+2: empty,empty
+3: empty,empty
+----------
+Overflow
+0: empty
+1: empty
+2: empty
+3: empty
+[Task 2]
+0: empty
+1: 13
+2: 15
+3: 3
+[Task 3]
+1
+A B C E F D
+[Task 4]
+3
+A
+B 
+C D E
+[Task 5]
+A C E 8
+[Task 6]
+A F E D 7
+[Task 7]
+A C
+A C D
+A C D B
+A C D E
+9
+[Task 8]
+A C 1
+B D 1
+C D 2
+D E 5
+A C D B 9

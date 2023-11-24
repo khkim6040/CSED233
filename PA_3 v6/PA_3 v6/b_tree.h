@@ -1,0 +1,27 @@
+#pragma once
+#include <string>
+
+using namespace std;
+
+class BTree {
+public:
+
+    /////////////////////////////////////////////////////////
+    //////  TODO: Implement BTree class, Add public members if required ///////////
+
+    ///////////      End of Implementation      /////////////
+    /////////////////////////////////////////////////////////
+    
+    int has_elem(int key);
+    int insert_elem(int key);
+    int delete_elem(int key);
+    string postOrder();
+
+    
+private:
+    /////////////////////////////////////////////////////////
+    //////  TODO: Add private members if required ///////////
+
+    ///////////      End of Implementation      /////////////
+    /////////////////////////////////////////////////////////
+};

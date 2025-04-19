@@ -11,7 +11,7 @@ Homepage: https://jaesik.info/
 ## Grading Policy
 Midterm and final: 60%\
 Programming Assignment: 40%\
-> __Note__: _As version of folder says, there was a lot of changes in each programming assignment. And there are many ambiguous stuffs on it._
+> __Note__: _As the versions of folder say, there were lots of changes at each programming assignment. Also there were many ambiguous stuffs in it 🫠._
 
 ## References
 Sartaj Sahni, "Data Structures, Algorithms, and Applications in C   (2nd Ed.)," Silicon Press, 2004
